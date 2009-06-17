@@ -131,6 +131,7 @@ hi rubyKeyword               gui=bold      guifg=#0066ff
 hi rubySharpBang             gui=italic    guifg=#0066ff    
 hi rubyBoolean               gui=bold      guifg=#D1232E
 hi rubyGlobalVariable        gui=none      guifg=#556B2F     guibg=white
+hi rubyPredefinedVariable    gui=bold      guifg=#000099           
 
 "Experimental : modify as you go
 hi rubyOperator              guifg=black     ctermfg=143 guibg=black
@@ -141,7 +142,6 @@ hi rubyDataDirective           gui=none            guifg=black            guibg=
 hi rubyData                    gui=none            guifg=black            guibg=black
 hi rubyPredefinedConstant      gui=none            guifg=black            guibg=black
 hi rubyPredefinedIdentifier    gui=none            guifg=black            guibg=black
-hi rubyPredefinedVariable      gui=none            guifg=black            guibg=black
 hi rubyBeginEnd                gui=none            guifg=#000000          guibg=#000000
 hi rubyNumber                  gui=bold            guifg=#000000          guibg=#000000
 hi rubyIdentifier              gui=bold            guifg=#000000          guibg=#000000
