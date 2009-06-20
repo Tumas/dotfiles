@@ -1,19 +1,34 @@
-URxvt*termName: rxvt
+#general options
+URxvt.scrollstyle:  plain
+Urxvt.secondaryscroll:  true
+Urxvt.saveLines:    8192
 
+# colors : black and white
+#URxvt.background:   #000000
+#URxvt.foreground:   gray90
+#Urxvt.color7:       gray90
+#URxvt.colorBD:      #ffffff
+#URxvt.cursorcolor:  #e0e080
+#URxvt.throughcolor: #8080f0
+#Urxvt.highlightcolor:   #f0f0f0
+#Urxvt.underlineColor:   yellow
+
+URxvt*termName: rxvt
+ 
 ## borderless and no scrollbar
 URxvt*scrollBar_right: false
 URxvt*scrollBar: false
 URxvt*borderLess: false
-
+ 
 ## teh transparency stuff
 URxvt*inheritPixmap: true
 URxvt*tintColor: white
 URxvt*shading: 40
-
+ 
 ## geometry and font
 URxvt*geometry: 84×24
-URxvt*font: xft:monospace:pixelsize=11
-
+URxvt*font: xft:monospace:pixelsize=11:antialias=true
+ 
 ## change default colors
 URxvt*background: #000000
 URxvt*foreground: #A8A8A8
