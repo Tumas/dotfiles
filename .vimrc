@@ -11,6 +11,7 @@ set incsearch
 set ignorecase
 
 set ruler
+set number
 set nocp
 set vb t_vb=
 "set list listchars=trail:.,tab:>-
