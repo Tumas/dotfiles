@@ -36,7 +36,7 @@ wmiir write /tagrules <<!
 
 # Status Bar Info
 status() {
-	echo -n $(uptime | sed 's/.*://; s/,//g') '|' $(date)
+	echo -n $(uptime | sed 's/.*://; s/,//g') '|' $(date) '|' $(mpc | grep -)
 }
 
 # Event processing
