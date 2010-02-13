@@ -6,7 +6,7 @@ alias shutdown='sudo shutdown -h now'
 
 # network
 alias snet='sudo dhclient -r'
-alias testnet='ping -c 3 www.google.com'
+alias tnet='ping -c 3 www.google.com'
 
 # package manager
 alias update='sudo apt-get update'
