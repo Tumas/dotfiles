@@ -6,7 +6,7 @@ let st = g:snip_start_tag
 let et = g:snip_end_tag
 let cd = g:snip_elem_delim
 
-exec "Snippet init def initialize".st.et."<CR>".st.et."<CR>end<CR>".st.et
+exec "Snippet ini def initialize".st.et."<CR>".st.et."<CR>end<CR>".st.et
 exec "Snippet do do<CR>".st.et."<CR>end<CR>".st.et
 exec "Snippet class class ".st."className".et."<CR>".st.et."<CR>end<CR>".st.et
 exec "Snippet module module ".st."moduleName".et."<CR>".st.et."<CR>end<CR>".st.et
