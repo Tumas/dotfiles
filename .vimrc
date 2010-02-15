@@ -22,7 +22,7 @@ set mouse=a
 "set guifont=DejaVu\ Sans\ Mono\ 9
 set guifont=Droid\ Sans\ Mono\ 9
  
-:colorscheme molokai
+:colorscheme herald
 :syntax enable
  
 set background=dark
@@ -30,5 +30,7 @@ set guioptions-=T
 set guioptions-=m
  
 map <F5> "+p
-map <F3> :colorscheme desert<lf>
+map <F3> :NERDTree<lf>
 map <F2> :TlistToggle<lf> 
+" switching between vertical splits
+map <A-j> <C-w><C-w>
