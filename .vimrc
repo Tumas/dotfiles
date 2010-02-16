@@ -1,7 +1,6 @@
 set fileencodings=utf-8,ucs-bom,latin1
  
 set autoindent	
-
 set expandtab
 set sts=2
 set sw=2
@@ -34,3 +33,6 @@ map <F3> :NERDTree<lf>
 map <F2> :TlistToggle<lf> 
 " switching between vertical splits
 map <A-j> <C-w><C-w>
+
+" method folding 
+map <F6> :Fold \v^(^\s*def\s*)<lf>
