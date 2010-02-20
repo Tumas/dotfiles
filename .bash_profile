@@ -20,3 +20,7 @@ alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gb='git branch'
 alias gba='git branch -a'
+
+# gemdir 
+PATH="/var/lib/gems/1.8:${PATH}"
+export PATH
