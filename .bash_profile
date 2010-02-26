@@ -21,6 +21,9 @@ alias gca='git commit -v -a'
 alias gb='git branch'
 alias gba='git branch -a'
 
+# development
+alias spec='spec -color --format nested'
+
 # gemdir 
-PATH="/var/lib/gems/1.8:${PATH}"
+PATH="/var/lib/gems/1.8/bin:/home/$USER/Desktop/configs/scripts/dev/:${PATH}"
 export PATH

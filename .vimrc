@@ -5,6 +5,8 @@ set autochdir
 set mouse=a
 set vb t_vb=
 filetype plugin on
+filetype indent plugin on
+
 
 " editing
 set autoindent	
