@@ -1,7 +1,8 @@
 #!/usr/bin/ruby
+
 # == Synopsis 
 # Simple application that creates project files for a Ruby project
-# Creates a following project structure:
+# Creates the following project sructure:
 #
 #  projectname/
 #   bin/
@@ -16,9 +17,6 @@
 #   spec/
 #     projectname/
 #     spec_helper.rb    # will be responsible for requiring the lib/projectname.rb
-#
-# == Examples
-#  init-project -n project_name
 #
 # == Usage 
 #  init-project -n project_name
@@ -41,7 +39,7 @@ require 'ostruct'
 require 'rdoc/usage'
 require 'fileutils'
 
-class App
+class InitProject
   include FileUtils
 
   VERSION = "0.0.1"
@@ -63,7 +61,6 @@ class App
         mkdir %w{ bin features lib spec }
 
         cd 'bin' do 
-          # TODO: make executable
           File.open(@name, 'w', 0777) do |file|
             file << <<-eos
 #!/usr/bin/ruby
@@ -74,6 +71,10 @@ $: << File.join(File.dirname(__FILE__), "/../lib")
 
         cd 'features' do
           mkdir %w{ step_definitions support }
+          cd 'step_definitions' do 
+            touch "#{@name.downcase}"
+          end
+
           cd 'support' do
             File.open('env.rb', 'w') do |file|
               file << <<-eos
@@ -88,7 +89,7 @@ require '#{@name.downcase}'
 
         cd 'lib' do
           mkdir @name
-          touch "#{@name}.rb"
+          touch "#{@name.downcase}.rb"
         end
 
         cd 'spec' do
@@ -132,5 +133,5 @@ require '#{@name.downcase}'
 
 end
 
-App.new(ARGV, STDIN).run
+InitProject.new(ARGV, STDIN).run
 # TODO: fix layout for catching exceptions
