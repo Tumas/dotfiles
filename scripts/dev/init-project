@@ -1,0 +1,136 @@
+#!/usr/bin/ruby
+# == Synopsis 
+# Simple application that creates project files for a Ruby project
+# Creates a following project structure:
+#
+#  projectname/
+#   bin/
+#     projectname
+#   lib/
+#     projectname/
+#     projectname.rb    # will be responsible for requiring the source files in the lib/projectname dir
+#   features/
+#     step_definitions/
+#     support/
+#       env.rb          # will be responsible for requiring the lib/projectname.rb
+#   spec/
+#     projectname/
+#     spec_helper.rb    # will be responsible for requiring the lib/projectname.rb
+#
+# == Examples
+#  init-project -n project_name
+#
+# == Usage 
+#  init-project -n project_name
+#
+#   For help use: init-project -h
+#
+# == Options
+#   -h, --help          Displays help message
+#   -v, --version       Display the version, then exit
+#
+# == Author
+#   Tumas Bajoras
+#
+# == Copyright
+#   Copyright (c) 2010 Tumas Bajoras. Licensed under the MIT License:
+#   http://www.opensource.org/licenses/mit-license.php
+
+require 'optparse'
+require 'ostruct'
+require 'rdoc/usage'
+require 'fileutils'
+
+class App
+  include FileUtils
+
+  VERSION = "0.0.1"
+
+  def initialize(args, stdin)
+    @args = args
+    @stdin = stdin
+    
+    # defaults
+    @options = OpenStruct.new
+  end
+
+  def run
+    if parsed_options? 
+      exit unless @name
+
+      mkdir @name
+      cd @name do
+        mkdir %w{ bin features lib spec }
+
+        cd 'bin' do 
+          # TODO: make executable
+          File.open(@name, 'w', 0777) do |file|
+            file << <<-eos
+#!/usr/bin/ruby
+$: << File.join(File.dirname(__FILE__), "/../lib")
+            eos
+          end
+        end
+
+        cd 'features' do
+          mkdir %w{ step_definitions support }
+          cd 'support' do
+            File.open('env.rb', 'w') do |file|
+              file << <<-eos
+#!/usr/bin/ruby
+$: << File.join(File.dirname(__FILE__), "/../../lib")
+
+require '#{@name.downcase}'
+              eos
+            end
+          end
+        end
+
+        cd 'lib' do
+          mkdir @name
+          touch "#{@name}.rb"
+        end
+
+        cd 'spec' do
+          mkdir @name
+          File.open('spec_helper.rb', 'w') do |file|
+            file << <<-eos
+$: << File.join(File.dirname(__FILE__), "/../lib" )
+
+require 'spec'
+require '#{@name.downcase}'
+            eos
+          end
+        end
+      end
+
+    else
+      puts "Whoops! Something bad happened. Run with -h for examples"
+    end
+  end
+
+  private
+ 
+  def parsed_options?
+    opts = OptionParser.new
+
+    opts.on('-h', '--help') { output_help }
+    opts.on('-v', '--version') { output_version } 
+    opts.on('-n', '--name PROJECTNAME') { |name| @name = name }
+    opts.parse!(@args) rescue return false
+
+    true
+  end
+
+  def output_version
+    puts "#{File.basename(__FILE__)} version #{VERSION}"
+  end
+  
+  def output_help
+    puts RDoc::usage
+  end
+
+end
+
+App.new(ARGV, STDIN).run
+# TODO: fix layout for catching exceptions
