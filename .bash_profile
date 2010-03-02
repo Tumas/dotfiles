@@ -15,7 +15,7 @@ alias update='sudo apt-get update'
 alias gst='git status'
 alias gl='git pull'
 alias gp='git push'
-alias gd='git diff | mate'
+alias gd='git diff | vim -R -'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gb='git branch'
@@ -25,5 +25,5 @@ alias gba='git branch -a'
 alias spec='spec -color --format nested'
 
 # gemdir 
-PATH="/var/lib/gems/1.8/bin:/home/$USER/Desktop/configs/scripts/dev/:/home/$USER/Desktop/configs/scripts/fun/:${PATH}"
+PATH="/var/lib/gems/1.8/bin:/home/$USER/Desktop/configs/scripts/dev/:${PATH}"
 export PATH
