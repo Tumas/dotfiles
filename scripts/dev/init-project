@@ -1,58 +1,67 @@
-#!/usr/bin/ruby
+#!/usr/bin/ruby 
 
-# == Synopsis 
-# Simple application that creates project files for a Ruby project
-# Creates the following project sructure:
-#
-#  projectname/
-#   bin/
-#     projectname
-#   lib/
-#     projectname/
-#     projectname.rb    # will be responsible for requiring the source files in the lib/projectname dir
-#   features/
-#     step_definitions/
-#     support/
-#       env.rb          # will be responsible for requiring the lib/projectname.rb
-#   spec/
-#     projectname/
-#     spec_helper.rb    # will be responsible for requiring the lib/projectname.rb
-#
-# == Usage 
-#  init-project -n project_name
-#
-#   For help use: init-project -h
-#
-# == Options
-#   -h, --help          Displays help message
-#   -v, --version       Display the version, then exit
-#
-# == Author
-#   Tumas Bajoras
-#
-# == Copyright
-#   Copyright (c) 2010 Tumas Bajoras. Licensed under the MIT License:
-#   http://www.opensource.org/licenses/mit-license.php
-
-require 'optparse'
-require 'rdoc/usage'
+require 'rubygems'
+require 'oyster'
 require 'fileutils'
+
+spec = Oyster.spec do
+  name  'init-project create initial project files for your ruby project'
+
+  description <<-EOS
+   Simple application that creates project files for a Ruby project
+   Creates the following project sructure:
+
+        projectname/
+         bin/
+           projectname
+         lib/
+           projectname/
+           projectname.rb    # will be responsible for requiring the source files in the lib/projectname dir
+         features/
+           step_definitions/
+           support/
+             env.rb          # will be responsible for requiring the lib/projectname.rb
+         spec/
+           projectname/
+           spec_helper.rb    # will be responsible for requiring the lib/projectname.rb
+  EOS
+
+  synopsis <<-EOS
+    myprogram [options] --option FILE
+  EOS
+
+  string :name, :desc => 'Name of the project'
+
+  author 'Tumas Bajoras <hanniph@gmail.com>'
+
+  copyright <<-EOS
+    (c) 2010 Tumas Bajoras. This program is free software, distributed under
+    the MIT license. You are free to use it for whatever purpose you see fit.
+  EOS
+end
 
 class InitProject
   include FileUtils
 
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
 
-  def initialize(args, stdin)
-    @args = args
-    @stdin = stdin
-    
+  def initialize(spec)
+    @spec = spec
+  end
+
+  def parsed_options?
+    @opts = @spec.parse
+    unless @opts[:name]
+      @name = "default"
+    else
+      @name = @opts[:name]
+    end
+    true
   end
 
   def run
     if parsed_options? 
-      exit unless @name
-
+      # program logic
       mkdir @name
       cd @name do
         mkdir %w{ bin features lib spec }
@@ -102,34 +111,8 @@ require '#{@name.downcase}'
         end
       end
 
-    else
-      puts "Whoops! Something bad happened. Run with -h for examples"
     end
   end
-
-  private
- 
-  def parsed_options?
-    opts = OptionParser.new
-
-    opts.on('-h', '--help') { output_help }
-    opts.on('-v', '--version') { output_version } 
-    opts.on('-n', '--name PROJECTNAME') { |name| @name = name }
-    opts.parse!(@args) rescue return false
-
-    true
-  end
-
-  def output_version
-    puts "#{File.basename(__FILE__)} version #{VERSION}"
-  end
-  
-  def output_help
-    puts RDoc::usage
-  end
-
 end
 
-InitProject.new(ARGV, STDIN).run
-# TODO: fix layout for catching exceptions
-# TODO: why Rdoc::usage gives 'no usage for this file'?
+InitProject.new(spec).run
