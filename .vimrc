@@ -5,8 +5,16 @@ set autochdir
 set mouse=a
 set vb t_vb=
 filetype plugin on
+filetype plugin indent on
 filetype indent plugin on
+syntax on
 
+if $COLORTERM == 'gnome-terminal' 
+    set term=gnome-256color 
+    colorscheme railscasts 
+else 
+    colorscheme default 
+endif 
 
 " editing
 set autoindent	
@@ -24,7 +32,6 @@ set ignorecase
 set ruler
 set number
 set guifont=Droid\ Sans\ Mono\ 9
-set background=dark
 set guioptions-=T
 set guioptions-=m
  
@@ -49,3 +56,6 @@ map <F7> :Fold \v^(^\s*def\s*)<lf>
 " XML
 let mapleader = ","
 nmap <Leader>l :!xmllint --noout %<lf>
+
+" Clojure
+let clj_highlight_builtins = 1
