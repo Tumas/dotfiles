@@ -4,6 +4,7 @@ set nocp
 set autochdir
 set mouse=a
 set vb t_vb=
+
 filetype plugin on
 filetype plugin indent on
 filetype indent plugin on
@@ -31,15 +32,56 @@ set ignorecase
 " visual
 set ruler
 set number
-set guifont=Droid\ Sans\ Mono\ 9
+set cursorline
+
+" show status line
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\[HEX=\%02.2B]\ [%p%%]\ [LEN=%L]
+set laststatus=2
+
+" set guifont=droid\ sans\ mono\ 9
+"set guifont=Inconsolata\ 11
+set guifont=Consolas\ 10
+
 set guioptions-=T
 set guioptions-=m
- 
+
+" toggle menu bar
+map <silent> <C-F2> :if &guioptions =~# 'm'<bar>
+  \set guioptions-=m<bar>
+\else <Bar>
+  \set guioptions+=m<bar>
+\endif<CR>
+
 :colorscheme herald
 :syntax enable
- 
-" mappings
 
+" balloon settings
+" show balloon when hovered on folded area
+function! FoldSpellBalloon()
+  let foldStart = foldclosed(v:beval_lnum)
+  let foldEnd = foldclosedend(v:beval_lnum)
+  let lines = []
+  " Detect if we are in the fold
+  if foldStart > 0
+    let numLines = foldEnd - foldStart + 1
+    " if we have too many lines in fold, show only the first 14
+    " and the last 14 lines
+    if (numLines > 31)
+      let lines = getline(foldStart, foldStart + 14)
+      let lines += ['-- Snipped ' . (numLines - 30) . ' lines --']
+      let lines += getline(foldStart, foldEnd)
+    else
+      let lines = getline(foldStart, foldEnd)
+    endif
+  endif
+  return join(lines, has("balloon_multiline") ? "\n" : " ")
+endfunction
+
+set balloonexpr=FoldSpellBalloon()
+set ballooneval
+set balloondelay=400
+
+" mappings
 map <A-q> :bn<lf>
 map <F5> "+p
 map <F6> "+y
@@ -51,11 +93,8 @@ map <A-j> <C-w><C-w>
 
 " RUBY
 " method folding 
-map <F7> :Fold \v^(^\s*def\s*)<lf>
+"map <F7> :Fold \v^(^\s*def\s*)<lf>
 
 " XML
 let mapleader = ","
 nmap <Leader>l :!xmllint --noout %<lf>
-
-" Clojure
-let clj_highlight_builtins = 1
