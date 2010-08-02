@@ -25,5 +25,8 @@ alias gba='git branch -a'
 alias spec='spec -color --format nested'
 
 # gemdir 
-PATH="/var/lib/gems/1.8/bin:/home/$USER/Desktop/configs/scripts/dev/:${PATH}"
+PATH="/var/lib/gems/1.8/bin:/home/$USER/Desktop/configs/scripts/dev/:/home/$USER/Desktop/shoes/dist:${PATH}"
 export PATH
+
+# custom comamnds
+alias rnew='ruby ~/bin/rnew.rb'

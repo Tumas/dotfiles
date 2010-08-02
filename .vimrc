@@ -45,6 +45,16 @@ set guifont=Consolas\ 10
 set guioptions-=T
 set guioptions-=m
 
+" disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 " toggle menu bar
 map <silent> <C-F2> :if &guioptions =~# 'm'<bar>
   \set guioptions-=m<bar>
