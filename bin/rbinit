@@ -1,0 +1,144 @@
+#!/usr/bin/ruby -w
+
+#   This program is free software, distributed under
+#   the MIT license. You are free to use it for whatever purpose you see fit.
+#
+#   Simple application that creates project files for a Ruby project
+#   Creates the following project sructure:
+#
+#        projectname/
+#         bin/
+#           projectname
+#         lib/
+#           projectname/
+#           projectname.rb    # will be responsible for requiring the source files in the lib/projectname dir
+#         features/
+#           step_definitions/
+#           support/
+#             env.rb          # will be responsible for requiring the lib/projectname.rb
+#         spec/
+#           projectname/
+#           spec_helper.rb    # will be responsible for requiring the lib/projectname.rb
+#
+#   rbinit [OPTIONS] --name NAME
+#
+# Options :
+#   -n --name name_of_the_project
+#   -f --skip-features do not create features directory
+#   -b --skip-bin do not create bin directory
+#   -s --skip-spec do not create spec directory
+
+require 'optparse'
+require 'fileutils'
+
+class RBInit
+  include FileUtils
+
+  def initialize
+    @opts = {}
+  end
+
+  def parse_arguments
+    OptionParser.new do |opts|
+      opts.banner = <<-eos
+   This program is free software, distributed under
+   the MIT license. You are free to use it for whatever purpose you see fit.
+
+   Simple application that creates project files for a Ruby project
+   Creates the following project sructure:
+
+        projectname/
+         bin/
+           projectname
+         lib/
+           projectname/
+           projectname.rb    # will be responsible for requiring the source files in the lib/projectname dir
+         features/
+           step_definitions/
+           support/
+             env.rb          # will be responsible for requiring the lib/projectname.rb
+         spec/
+           projectname/
+           spec_helper.rb    # will be responsible for requiring the lib/projectname.rb
+
+   rbinit [OPTIONS] --name NAME
+
+      eos
+
+      opts.on('-n', '--name NAME', 'name of the project') {|name| @opts[:name] = name }
+      opts.on('-c', '--skip-features', 'do not create features directory') { @opts[:c] = true }
+      opts.on('-b', '--skip-bin', 'do not create bin directory') { @opts[:b] = true }
+      opts.on('-s', '--skip-spec', 'do not create spec directorry') { @opts[:s] = true }
+      #opts.on('-f', '--forced', 'overwrite existing files and folders') { @opts[:forced] = true }
+    end.parse!
+
+    raise "Name must be specified" unless @opts[:name]
+  end
+
+  def run
+    parse_arguments
+
+    mkdir @opts[:name] 
+    cd @opts[:name] do
+      # craete bin directory if not specified otherwise
+      unless @opts[:b] 
+        mkdir 'bin'
+        cd 'bin' do
+          File.open(@opts[:name], 'w', 0755) do |file|
+            file << <<-eos
+#!/usr/bin/ruby
+$: << File.join(File.dirname(__FILE__), "/../lib")
+            eos
+          end
+        end
+      end
+
+      # craete features directory if not specified otherwise
+      unless @opts[:c] 
+        mkdir 'features'
+        cd 'features' do
+          mkdir %w{ step_definitions support }
+          cd 'step_definitions' do 
+            touch "#{@opts[:name].downcase}.rb"
+          end
+
+          cd 'support' do
+            File.open('env.rb', 'w', 0755) do |file|
+              file << <<-eos
+#!/usr/bin/ruby
+$: << File.join(File.dirname(__FILE__), "/../../lib")
+
+require '#{@opts[:name].downcase}'
+              eos
+            end
+          end
+        end
+      end
+
+      mkdir 'lib'
+      cd 'lib' do
+        mkdir @opts[:name]
+        touch "#{@opts[:name].downcase}.rb"
+      end
+
+      # craete spec directory if not specified otherwise
+      unless @opts[:s] 
+        mkdir 'spec'
+        cd 'spec' do
+          File.open('spec_helper.rb', 'w', 0755) do |file|
+            file << <<-eos
+$: << File.join(File.dirname(__FILE__), "/../lib" )
+
+require 'spec'
+require '#{@opts[:name].downcase}'
+            eos
+          end
+
+          mkdir @opts[:name]
+        end
+      end
+    end
+  end
+end
+
+RBInit.new.run
