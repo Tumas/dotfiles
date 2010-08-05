@@ -91,6 +91,10 @@ set balloonexpr=FoldSpellBalloon()
 set ballooneval
 set balloondelay=400
 
+" get rid of .swp and ~ files
+set directory=~/.backups
+set backupdir=~/.backups
+
 " mappings
 map <A-q> :bn<lf>
 map <F5> "+p
