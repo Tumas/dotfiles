@@ -27,3 +27,8 @@ alias spec='spec -color --format nested'
 # gemdir 
 PATH="/var/lib/gems/1.8/bin:${PATH}"
 export PATH
+
+export VIMHOME="~/.vim"
+
+# rvm
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm

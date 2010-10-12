@@ -4,10 +4,6 @@ set nocp
 set autochdir
 set mouse=a
 set vb t_vb=
-
-filetype plugin on
-filetype plugin indent on
-filetype indent plugin on
 syntax on
 
 if $COLORTERM == 'gnome-terminal' 
@@ -62,7 +58,7 @@ map <silent> <C-F2> :if &guioptions =~# 'm'<bar>
   \set guioptions+=m<bar>
 \endif<CR>
 
-:colorscheme herald
+:colorscheme ekinivim
 :syntax enable
 
 " balloon settings
@@ -105,10 +101,15 @@ map <F2> :TlistToggle<lf>
 " switching between vertical splits
 map <A-j> <C-w><C-w>
 
-" RUBY
-" method folding 
-"map <F7> :Fold \v^(^\s*def\s*)<lf>
-
 " XML
 let mapleader = ","
+let xml_use_xhtml = 1
 nmap <Leader>l :!xmllint --noout %<lf>
+
+" templates
+:autocmd BufNewFile * silent! 0r $VIMHOME/templates/%:e.tpl
+
+
+filetype plugin on
+filetype plugin indent on
+filetype indent plugin on
