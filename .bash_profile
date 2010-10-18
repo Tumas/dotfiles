@@ -32,3 +32,7 @@ export VIMHOME="~/.vim"
 
 # rvm
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+# prompt
+PS1="[\W @ \u]: "
+export PS1
