@@ -19,7 +19,7 @@ if [ -d 'codeigniter' ]; then
   cd 'codeigniter'
   for dir in cache logs ; do
     if [ -d $dir ]; then
-      chmod a+wx $dir
+      chmod a+w $dir
       echo $dir " updated " 
     fi
   done
@@ -32,7 +32,7 @@ if [ -d 'application' ]; then
   cd 'application'
   for dir in cache cache/dwoo cache/dwoo/compiled cache/simplepie uploads assets/img/photos uploads/assets uploads/assets/cache ; do
     if [ -d $dir ]; then
-      chmod a+wx $dir
+      chmod a+w $dir
       echo $dir " updated "
     fi
   done

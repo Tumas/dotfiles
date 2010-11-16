@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+# based on:  http://grosser.it/2009/06/17/quick-markdown-preview-for-github-readme/
+raise "gime a file!!" unless ARGV[0]
+
+require 'rubygems'
+require 'markdown' 
+
+text = Markdown.new(File.read(ARGV[0])).to_html
+File.open('/tmp/markdown.html','w'){|f| f.puts text}
+
+exec "chromium-browser /tmp/markdown.html"
