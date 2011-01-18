@@ -58,7 +58,7 @@ map <silent> <C-F2> :if &guioptions =~# 'm'<bar>
   \set guioptions+=m<bar>
 \endif<CR>
 
-:colorscheme ekinivim
+:colorscheme railscasts
 :syntax enable
 
 " balloon settings
@@ -101,6 +101,9 @@ map <F2> :TlistToggle<lf>
 " switching between vertical splits
 map <A-j> <C-w><C-w>
 
+" expand to MathJax syntax
+imap <M-m> $$<Esc>hi$$
+
 " XML
 let mapleader = ","
 let xml_use_xhtml = 1
@@ -108,7 +111,6 @@ nmap <Leader>l :!xmllint --noout %<lf>
 
 " templates
 :autocmd BufNewFile * silent! 0r $VIMHOME/templates/%:e.tpl
-
 
 filetype plugin on
 filetype plugin indent on
