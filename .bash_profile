@@ -3,6 +3,7 @@ alias apt='sudo apt-get install'
 alias remove='sudo apt-get remove'
 alias search='apt-cache search'
 alias shutdown='sudo shutdown -h now'
+alias ..='cd ..'
 
 # network
 alias snet='sudo dhclient -r'
