@@ -35,5 +35,6 @@ export VIMHOME="~/.vim"
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 # prompt
-PS1="[\W @ \u]: "
+#PS1="[\W @ \u]: "
+PS1="\[\033[31m\][\d]\[\033[32m\][\t]\[\033[35m\][\w]\n-> \[\033[0m\]"
 export PS1
