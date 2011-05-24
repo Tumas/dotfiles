@@ -9,8 +9,10 @@ syntax on
 if $COLORTERM == 'gnome-terminal' 
     set term=gnome-256color 
     colorscheme railscasts 
+    set background=dark
 else 
     colorscheme default 
+    set background=light
 endif 
 
 " editing
