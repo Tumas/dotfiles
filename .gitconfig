@@ -1,0 +1,18 @@
+[user]
+	name = Tumas Bajoras
+	email = hanniph@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	history-view-vpane-position = 282
+	main-window-view = HistoryView
+	file-view-vpane-position = 552
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	st = diff --staged
+	vim = diff | vim -R -
