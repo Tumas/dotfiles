@@ -14,5 +14,9 @@
 	file-view-vpane-position = 552
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	st = diff --staged
-	vim = diff | vim -R -
+        lgn = "!f() { git log --graph --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative $@ | git name-rev --stdin --name-only ; } ; f"
+        vim = !git diff | vim -R -
+        last = cat-file commit HEAD
+        stat = diff --stat
+	staged = diff --staged
+[
