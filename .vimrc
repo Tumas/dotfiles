@@ -8,8 +8,7 @@ syntax on
 
 if $COLORTERM == 'gnome-terminal' 
     set term=gnome-256color 
-    colorscheme railscasts 
-    set background=dark
+    colorscheme railscasts set background=dark
 else 
     colorscheme default 
     set background=light
@@ -102,6 +101,8 @@ map <F2> :TlistToggle<lf>
 
 " switching between vertical splits
 map <A-j> <C-w><C-w>
+map <A-r> :CoffeeRun<lf>
+map <A-c> :CoffeeMake<lf>
 
 " expand to MathJax syntax
 imap <M-m> $$<Esc>hi$$

@@ -14,6 +14,7 @@ alias update='sudo apt-get update'
 
 # development
 alias spec='spec -color --format nested'
+alias rspec='rspec -color --format nested'
 
 # gemdir 
 PATH="/var/lib/gems/1.8/bin:${PATH}"
