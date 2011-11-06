@@ -98,6 +98,7 @@ map <F5> "+p
 map <F6> "+y
 map <F3> :NERDTree<lf>
 map <F2> :TlistToggle<lf> 
+map <A-f> gg=G
 
 " switching between vertical splits
 map <A-j> <C-w><C-w>

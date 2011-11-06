@@ -1,20 +1,26 @@
-# system 
+# package manager
 alias apt='sudo apt-get install'
 alias remove='sudo apt-get remove'
 alias search='apt-cache search'
 alias shutdown='sudo shutdown -h now'
+alias reboot='sudo reboot'
+alias clean='sudo apt-get autoremove'
+alias update='sudo apt-get update'
+
+# system 
 alias ..='cd ..'
 
 # network
 alias snet='sudo dhclient -r'
 alias tnet='ping -c 3 www.google.com'
 
-# package manager
-alias update='sudo apt-get update'
-
 # development
 alias spec='spec -color --format nested'
 alias rspec='rspec -color --format nested'
+
+alias be='bundle exec'
+alias rs='rails s'
+alias rc='rails c'
 
 # gemdir 
 PATH="/var/lib/gems/1.8/bin:${PATH}"
