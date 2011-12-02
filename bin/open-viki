@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+
+user_agent ='google-chrome'
+dir = "/home/#{ENV['USER']}/markdown-git-wiki/pages"
+
+if File.exists? dir
+  dir += "/index.html" if File.exists? "#{dir}/index.html"
+  `#{user_agent} #{dir}`
+else
+  p "Wiki not ready"
+end
