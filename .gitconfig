@@ -20,3 +20,5 @@
         stat = diff --stat
 	staged = diff --staged
         ci = commit
+        co = checkout
+        st = status
