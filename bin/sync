@@ -7,9 +7,9 @@ viki = '~/viki'
 
 # directories to backup
 backup = {
-  '~/viki' => 'info'
+  '~/viki' => 'info',
+  '/srv/gitosis/repositories' => 'repos'
 }
-
 
 if File.exists? dest_root
   p "Backup destination: #{dest_root}"
