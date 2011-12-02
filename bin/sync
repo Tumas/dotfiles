@@ -1,0 +1,27 @@
+#!/usr/bin/ruby
+
+dest_root = '/media/Elements/'
+
+# files to backup 
+viki = '~/viki'
+
+# directories to backup
+backup = {
+  '~/viki' => 'info'
+}
+
+
+if File.exists? dest_root
+  p "Backup destination: #{dest_root}"
+
+  backup.each do |src, dest|
+    full_dest = "#{dest_root}#{dest}"
+    p "Syncing: #{src} to #{full_dest}"
+
+    `rm -rf #{full_dest}` if File.exists? full_dest
+    `cp -r #{src} #{full_dest}`
+    p "OK"
+  end
+else
+  p "[ERROR] Destination directory not mounted."
+end
