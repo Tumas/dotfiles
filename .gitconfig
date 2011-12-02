@@ -19,4 +19,3 @@
         last = cat-file commit HEAD
         stat = diff --stat
 	staged = diff --staged
-[
