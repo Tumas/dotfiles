@@ -8,7 +8,7 @@ viki = '~/viki'
 # directories to backup
 backup = {
   '~/viki' => 'info',
-  '/srv/gitosis/repositories' => 'repos'
+  '/home/gitolite/repositories' => 'repos'
 }
 
 if File.exists? dest_root
