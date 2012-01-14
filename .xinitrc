@@ -1,6 +1,8 @@
 # set wallpaper
 eval `cat ~/.fehbg` 
 
+dropboxd &
+
 # XMONAD
 xsetroot -cursor-name left_prt
 setxkbmap -layout us
