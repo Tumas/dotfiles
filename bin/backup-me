@@ -1,0 +1,13 @@
+#!/usr/bin/ruby
+
+map = {
+  :dropbox => "~/Dropbox/backup",
+  :disk => "/media/Elements/backup"
+}
+
+dest = (ARGV.any? and map[ARGV.first.to_sym]) ? map[ARGV.first.to_sym] : map[:disk]
+current = Dir.pwd.split('/').last
+`cp -r ../#{current}/ #{dest}`
+
+p "saving to #{dest}"
+puts `ls -al #{dest}/#{current}`
