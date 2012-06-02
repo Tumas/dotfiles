@@ -1,14 +1,16 @@
 # package manager
-alias apt='sudo apt-get install'
-alias remove='sudo apt-get remove'
-alias search='apt-cache search'
-alias shutdown='sudo shutdown -h now'
-alias reboot='sudo reboot'
-alias clean='sudo apt-get autoremove'
-alias update='sudo apt-get update'
+alias pcki='sudo apt-get install'
+alias pckr='sudo apt-get remove'
+alias pcks='apt-cache search'
+alias pcku='sudo apt-get update'
 
 # system 
 alias ..='cd ..'
+alias h='history'
+alias c='clear'
+
+alias shutdown='sudo shutdown -h now'
+alias reboot='sudo reboot'
 
 # network
 alias snet='sudo dhclient -r'
@@ -21,3 +23,24 @@ alias rspec='rspec -color --format nested'
 alias be='bundle exec'
 alias rs='rails s'
 alias rc='rails c'
+
+# ls
+alias l="ls -laGh"
+
+#git 
+alias g="git status"
+alias gs="git staged"
+alias ga="git add"
+alias gb="git branch"
+alias gba="git branch -a"
+alias gc="git commit"
+alias gco="git checkout"
+alias gd="git diff"
+
+#aliases
+alias aliases="cat ~/bin/dotfiles/bash/aliases"
+
+function take {
+  mkdir $1
+  cd $1
+}
