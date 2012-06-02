@@ -21,17 +21,3 @@ alias rspec='rspec -color --format nested'
 alias be='bundle exec'
 alias rs='rails s'
 alias rc='rails c'
-
-# gemdir 
-PATH="/var/lib/gems/1.8/bin:${PATH}"
-export PATH
-
-export VIMHOME="~/.vim"
-
-# rvm
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-
-# prompt
-#PS1="[\W @ \u]: "
-PS1="\[\033[31m\][\d]\[\033[32m\][\t]\[\033[35m\][\w]\n-> \[\033[0m\]"
-export PS1
