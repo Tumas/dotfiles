@@ -23,6 +23,7 @@ alias rspec='rspec -color --format nested'
 alias be='bundle exec'
 alias rs='rails s'
 alias rc='rails c'
+alias bake='bundle exec rake'
 
 # ls
 alias l="ls -laGh"
@@ -36,6 +37,7 @@ alias gba="git branch -a"
 alias gc="git commit"
 alias gco="git checkout"
 alias gd="git diff"
+alias gl="git log"
 
 #aliases
 alias aliases="cat ~/bin/dotfiles/bash/aliases"
