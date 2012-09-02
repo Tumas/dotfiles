@@ -22,3 +22,6 @@
         ci = commit
         co = checkout
         st = status
+	ctags = !.git/hooks/ctags
+[init]
+	templatedir = /home/tumas/bin/dotfiles/.git_template
