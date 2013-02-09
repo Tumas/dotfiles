@@ -1,24 +1,24 @@
 # package manager
-alias pcki='sudo apt-get install'
-alias pckr='sudo apt-get remove'
-alias pcks='apt-cache search'
-alias pcku='sudo apt-get update'
+#alias pcki='sudo apt-get install'
+#alias pckr='sudo apt-get remove'
+#alias pcks='apt-cache search'
+#alias pcku='sudo apt-get update'
 
 # system 
 alias ..='cd ..'
 alias h='history'
 alias c='clear'
 
-alias shutdown='sudo shutdown -h now'
-alias reboot='sudo reboot'
+#alias shutdown='sudo shutdown -h now'
+#alias reboot='sudo reboot'
 
 # network
 alias snet='sudo dhclient -r'
 alias tnet='ping -c 3 www.google.com'
 
 # development
-alias spec='spec -color --format nested'
-alias rspec='rspec -color --format nested'
+#alias spec='spec -color --format nested'
+#alias rspec='rspec -color --format nested'
 
 alias be='bundle exec'
 alias rs='rails s'
