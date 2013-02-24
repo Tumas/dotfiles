@@ -1,4 +1,8 @@
 export VIMHOME="~/.vim"
+export ANDROID_TOOLS="~/projects/resources/adt-bundle-mac-x86_64/sdk/tools"
 
 # rbenv
-PATH="$HOME/bin:$PATH"
+PATH="/usr/local/bin:$HOME/bin:$PATH"
+
+# android sdk
+PATH="$PATH:$ANDROID_TOOLS"
