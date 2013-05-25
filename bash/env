@@ -1,8 +1,12 @@
-export VIMHOME="~/.vim"
-export ANDROID_TOOLS="~/projects/resources/adt-bundle-mac-x86_64/sdk/tools"
+export VIMHOME="$HOME/.vim"
+export ANDROID_TOOLS="$HOME/projects/resources/adt-bundle-mac-x86_64/sdk/tools"
+export ANDROID_PLATFORM_TOOLS="$HOME/projects/resources/adt-bundle-mac-x86_64/sdk/platform-tools"
+export SUBLIME=~/Library/Application\ Support/Sublime\ Text\ 2/Packages
+export LB="$HOME/Library/Application\ Support"
 
 # rbenv
-PATH="/usr/local/bin:$HOME/bin:$PATH"
+PATH="/usr/local/bin:$HOME/bin:/usr/local/go/bin:$PATH"
 
 # android sdk
 PATH="$PATH:$ANDROID_TOOLS"
+PATH="$PATH:$ANDROID_PLATFORM_TOOLS"
