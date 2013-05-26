@@ -10,3 +10,6 @@ PATH="/usr/local/bin:$HOME/bin:/usr/local/go/bin:$PATH"
 # android sdk
 PATH="$PATH:$ANDROID_TOOLS"
 PATH="$PATH:$ANDROID_PLATFORM_TOOLS"
+
+# node
+PATH="$PATH:/usr/local/share/npm/bin"
