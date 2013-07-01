@@ -1,4 +1,4 @@
-# system 
+# system
 alias ..='cd ..'
 alias h='history'
 alias c='clear'
@@ -11,8 +11,8 @@ alias snet='sudo dhclient -r'
 alias tnet='ping -c 3 www.google.com'
 
 # development
-alias spec='spec -color --format nested'
-alias rspec='rspec -color --format nested'
+alias spec='spec --color --format nested'
+alias rspec='rspec --color --format nested'
 
 alias be='bundle exec'
 alias rs='rails s'
@@ -22,7 +22,7 @@ alias bake='bundle exec rake'
 # ls
 alias l="ls -laGh"
 
-#git 
+#git
 alias g="git status"
 alias gs="git staged"
 alias ga="git add"
