@@ -1,11 +1,9 @@
 export VIMHOME="$HOME/.vim"
-export ANDROID_TOOLS="$HOME/projects/resources/adt-bundle-mac-x86_64/sdk/tools"
-export ANDROID_PLATFORM_TOOLS="$HOME/projects/resources/adt-bundle-mac-x86_64/sdk/platform-tools"
+export ANDROID_TOOLS="$HOME/Projects/resources/adt-bundle-mac-x86_64/sdk/tools"
+export ANDROID_PLATFORM_TOOLS="$HOME/Projects/resources/adt-bundle-mac-x86_64/sdk/platform-tools"
 export SUBLIME=~/Library/Application\ Support/Sublime\ Text\ 2/Packages
 export LB="$HOME/Library/Application\ Support"
-
-# rbenv
-PATH="/usr/local/bin:$HOME/bin:/usr/local/go/bin:$PATH"
+export PATH="$HOME/.cask/bin:$PATH"
 
 # android sdk
 PATH="$PATH:$ANDROID_TOOLS"
@@ -13,3 +11,7 @@ PATH="$PATH:$ANDROID_PLATFORM_TOOLS"
 
 # node
 PATH="$PATH:/usr/local/share/npm/bin"
+
+# chruby
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
