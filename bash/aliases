@@ -36,7 +36,7 @@ alias gl="git log"
 alias git-bs="git for-each-ref --sort=-committerdate refs/heads/"
 
 # launchers
-alias subl="open -a 'Sublime Text 2'"
+# alias subl="open -a 'Sublime Text 2'"
 
 #aliases
 alias aliases="cat ~/bin/dotfiles/bash/aliases"
