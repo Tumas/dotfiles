@@ -25,5 +25,6 @@
         st = status
 	ctags = !.git/hooks/ctags
         g = grep --break --heading --line-number
+        bs = for-each-ref --sort=-commiterdate refs/heads/
 [init]
 	templatedir = /home/tumas/bin/dotfiles/.git_template
