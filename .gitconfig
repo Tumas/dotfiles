@@ -1,7 +1,6 @@
 [user]
         name = Tumas Bajoras
         email = tumas.bajoras@gmail.com
-        default = simple
 [color]
         diff = auto
         status = auto
@@ -29,3 +28,5 @@
         bs = for-each-ref --sort=-commiterdate refs/heads/
 [init]
         templatedir = /home/tumas/bin/dotfiles/.git_template
+[push]
+	default = simple
