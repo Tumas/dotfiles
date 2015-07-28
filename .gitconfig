@@ -25,7 +25,8 @@
         st = status
         ctags = !.git/hooks/ctags
         g = grep --break --heading --line-number
-        bs = for-each-ref --sort=-commiterdate refs/heads/
+        bs = "for-each-ref --sort=-committerdate refs/heads/ --format=' %1B[0;31m%(authordate:relative)%1B[m %09%(refname)'"
+        bsl = "for-each-ref --sort=-committerdate refs/heads/ --format=' %1B[0;31m%(authordate)%1B[m%09%(refname)'"
 [init]
         templatedir = /home/tumas/bin/dotfiles/.git_template
 [push]
