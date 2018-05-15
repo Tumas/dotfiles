@@ -1,2 +1,2 @@
-. ~/projects/dotfiles/bash/env
-. ~/projects/dotfiles/bash/config
+. ~/Projects/dotfiles/bash/env
+. ~/Projects/dotfiles/bash/config

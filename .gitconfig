@@ -7,6 +7,23 @@
         branch = auto
         grep = auto
         interactive = auto
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+[color "diff"]
+        meta = black bold
+        frag = magenta bold
+        old = red
+        new = green
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+[grep]
+    linenumber = true
+
 [giggle]
         main-window-maximized = true
         main-window-geometry = 0x0+0+0
@@ -19,7 +36,7 @@
         vim = !git diff | vim -R -
         last = cat-file commit HEAD
         stat = diff --stat
-        staged = diff --staged
+        staged = diff --cached
         ci = commit
         co = checkout
         st = status
@@ -31,3 +48,7 @@
         templatedir = /home/tumas/bin/dotfiles/.git_template
 [push]
 	default = simple
+[merge]
+        tool = vim
+[core]
+	editor = vim

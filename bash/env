@@ -1,24 +1,14 @@
 export VIMHOME="$HOME/.vim"
-#export ANDROID_TOOLS="$HOME/Projects/resources/adt-bundle-mac-x86_64/sdk/tools"
-#export ANDROID_PLATFORM_TOOLS="$HOME/Projects/resources/adt-bundle-mac-x86_64/sdk/platform-tools"
-#export SUBLIME=~/Library/Application\ Support/Sublime\ Text\ 2/Packages
+
 export LB="$HOME/Library/Application\ Support"
 export PATH="$PATH:$HOME/.cask/bin"
 
-# android sdk
-PATH="$PATH:$ANDROID_TOOLS"
-PATH="$PATH:$ANDROID_PLATFORM_TOOLS"
+# Linux brew
+# PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 # node
 # export PATH=/usr/local/share/npm/bin:$PATH
 
-# chruby
-# source /usr/local/share/chruby/chruby.sh
-# source /usr/local/share/chruby/auto.sh
-
-# go
-# export GOPATH=$HOME/Projects/go
-# export PATH=$PATH:$GOPATH/bin
-
-# haskell
-# export PATH=$PATH:/$HOME/.cabal/bin
+# clojure
+# put lein script in .clojure/bin
+# export PATH=$PATH:/$HOME/.clojure/bin
