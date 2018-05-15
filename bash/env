@@ -4,7 +4,7 @@ export LB="$HOME/Library/Application\ Support"
 export PATH="$PATH:$HOME/.cask/bin"
 
 # Linux brew
-# PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 # node
 # export PATH=/usr/local/share/npm/bin:$PATH
